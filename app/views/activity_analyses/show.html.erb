@@ -1,0 +1,18 @@
+<h1>Activity Analysis</h1>
+
+<h2>Workout Summary</h2>
+<ul>
+  <li>Total Workouts: <%= @analysis[:workout_summary][:total_workouts] %></li>
+  <li>Total Duration: <%= @analysis[:workout_summary][:total_duration] %> minutes</li>
+  <li>Total Calories Burned: <%= @analysis[:workout_summary][:total_calories_burned] %> kcal</li>
+  <li>Average Intensity: <%= @analysis[:workout_summary][:average_intensity] %></li>
+</ul>
+
+<h2>Recommendations</h2>
+<ul>
+  <% @analysis[:recommendations].each do |recommendation| %>
+    <li><%= recommendation %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', root_path %>

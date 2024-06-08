@@ -1,0 +1,24 @@
+<h1>Nutrition Log Details</h1>
+
+<p>
+  <strong>Meal Type:</strong>
+  <%= @nutrition_log.meal_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @nutrition_log.description %>
+</p>
+
+<p>
+  <strong>Calories:</strong>
+  <%= @nutrition_log.calories %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @nutrition_log.date %>
+</p>
+
+<%= link_to 'Edit', edit_nutrition_log_path(@nutrition_log) %> |
+<%= link_to 'Back', nutrition_logs_path %>

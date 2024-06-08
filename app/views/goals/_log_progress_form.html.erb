@@ -1,0 +1,15 @@
+<%= form_with url: log_progress_goal_path(@goal), local: true, method: :post do |form| %>
+  <div>
+    <%= form.label :date, 'Date' %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.label :value, 'Progress Value' %>
+    <%= form.number_field :value %>
+  </div>
+
+  <div>
+    <%= form.submit 'Log Progress' %>
+  </div>
+<% end %>

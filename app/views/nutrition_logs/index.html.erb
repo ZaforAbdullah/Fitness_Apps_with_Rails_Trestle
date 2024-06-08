@@ -1,0 +1,30 @@
+<h1>Your Nutrition Logs</h1>
+
+<%= link_to 'Log a New Nutrition Entry', new_nutrition_log_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Meal Type</th>
+      <th>Description</th>
+      <th>Calories</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nutrition_logs.each do |log| %>
+      <tr>
+        <td><%= log.meal_type %></td>
+        <td><%= log.description %></td>
+        <td><%= log.calories %></td>
+        <td><%= log.date %></td>
+        <td><%= link_to 'Show', log %></td>
+        <td><%= link_to 'Edit', edit_nutrition_log_path(log) %></td>
+        <td><%= link_to 'Delete', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', root_path %>

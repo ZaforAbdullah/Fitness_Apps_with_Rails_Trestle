@@ -1,0 +1,21 @@
+<h1>Profile</h1>
+<% if @profile %>
+  <p>
+    <strong>Weight:</strong>
+    <%= @profile.weight %>
+  </p>
+  <p>
+    <strong>Height:</strong>
+    <%= @profile.height %>
+  </p>
+  <p>
+    <strong>Fitness Goal:</strong>
+    <%= @profile.fitness_goal %>
+  </p>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% else %>
+  <p>No profile information available.</p>
+  <%= link_to 'Add profile', new_profile_path(@profile) %> 
+<% end %>
+<%= link_to 'Back', root_path %>
+

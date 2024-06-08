@@ -1,0 +1,27 @@
+<canvas id="goalProgressChart" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var ctx = document.getElementById('goalProgressChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: <%= @goal.progress_dates.to_json.html_safe %>, // Array of dates
+        datasets: [{
+          label: 'Progress',
+          data: <%= @goal.progress_values.to_json.html_safe %>, // Array of progress values
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+</script>

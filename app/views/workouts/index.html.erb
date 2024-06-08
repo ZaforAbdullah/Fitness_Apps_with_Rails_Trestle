@@ -1,0 +1,30 @@
+<h1>Your Workouts</h1>
+
+<%= link_to 'Log a New Workout', new_workout_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exercise Type</th>
+      <th>Duration (minutes)</th>
+      <th>Intensity</th>
+      <th>Calories Burned</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= workout.exercise_type %></td>
+        <td><%= workout.duration %></td>
+        <td><%= workout.intensity %></td>
+        <td><%= workout.calories_burned %></td>
+        <td><%= link_to 'Show', workout %></td>
+        <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+        <td><%= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', root_path %>

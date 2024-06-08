@@ -1,0 +1,34 @@
+<h1>Your Goals</h1>
+
+<%= link_to 'Set a New Goal', new_goal_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Goal Type</th>
+      <th>Description</th>
+      <th>Target Value</th>
+      <th>Current Value</th>
+      <th>Achieved</th>
+      <th>Target Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goals.each do |goal| %>
+      <tr>
+        <td><%= goal.goal_type %></td>
+        <td><%= goal.description %></td>
+        <td><%= goal.target_value %></td>
+        <td><%= goal.current_value %></td>
+        <td><%= goal.achieved ? 'Yes' : 'No' %></td>
+        <td><%= goal.target_date %></td>
+        <td><%= link_to 'Show', goal %></td>
+        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+        <td><%= link_to 'Delete', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', root_path %>

@@ -1,0 +1,40 @@
+<h1>Goal Details</h1>
+
+<p>
+  <strong>Goal Type:</strong>
+  <%= @goal.goal_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @goal.description %>
+</p>
+
+<p>
+  <strong>Target Value:</strong>
+  <%= @goal.target_value %>
+</p>
+
+<p>
+  <strong>Current Value:</strong>
+  <%= @goal.current_value %>
+</p>
+
+<p>
+  <strong>Achieved:</strong>
+  <%= @goal.achieved ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <strong>Target Date:</strong>
+  <%= @goal.target_date %>
+</p>
+
+<h2>Progress</h2>
+<%= render 'chart', goal: @goal %>
+
+<h2>Log Progress</h2>
+<%= render 'log_progress_form', goal: @goal %>
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>
